@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+</head>
+<body>
+<h2>Create new person</h2>
+<form action="#" method="POST" th:action="@{/save}" th:object="${person}">
+    <input type="text" th:field="*{name}" placeholder="Name" /> <br/>
+    <input type="text" th:field="*{surname}" placeholder="Surname" /> <br/>
+    <input type="submit" value="Save Person"/>
+</form>
+<a th:href="@{/list}">Back to the list</a>
+</body>
+</html>

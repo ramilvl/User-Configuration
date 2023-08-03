@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+        <header class="header">
+            <div class="btn">
+                <a th:href="@{/newPerson}">Create new person</a>
+            </div>
+        </header>
+
+        <div class="container">
+            <main class="page">
+
+                <h1>Welcome!</h1>
+                <p>===List of Users in this website===</p>
+
+                <div th:each = "person : ${persons}"  class="info">
+
+                    <div class="info-str">
+                        <span th:text = "${person.name}">Name</span>
+                        <span th:text = "${person.surname}">Surname</span>
+                        <span th:text = "${person.id}">ID</span>
+                        <a th:href="@{/update/{id}(id=${person.id})}">Update</a>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+</body>
+</html>
