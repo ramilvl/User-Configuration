@@ -38,10 +38,14 @@ public class PersonController {
     }
 
     @GetMapping("/update/{id}")
-    public ModelAndView showUpdatePage(@PathVariable String id){
-        Person found = personService.getById(id);
-        ModelAndView mv = new ModelAndView("update_person");
-        mv.addObject("person", found);
-        return mv;
+    public String showUpdatePage(@PathVariable String id, Model model){
+        model.addAttribute("person", personService.getById(id) );
+        return "update_person";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deletepage(@PathVariable String id, Model model){
+        personService.deleteById(id);
+        return "redirect:/";
     }
 }

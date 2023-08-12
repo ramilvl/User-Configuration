@@ -25,6 +25,7 @@
                         <span th:text = "${person.surname}">Surname</span>
                         <span th:text = "${person.id}">ID</span>
                         <a th:href="@{/update/{id}(id=${person.id})}">Update</a>
+                        <a th:href="@{/delete/{id}(id=${person.id})}">Delete</a>
                     </div>
 
                 </div>
